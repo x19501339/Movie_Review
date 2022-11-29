@@ -1,0 +1,26 @@
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Your Favorite Movies Reviewed</h1>
+    <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+<p style="color: green"><%= notice %></p>
+<%= search_form_for(@q,method: :get, class:'d-flex') do |f| %>
+  <%= f.search_field :title_or_description_or_director_cont,
+                     placeholder: "Search...",
+                     class: "form-control me-2" %>
+  <%= f.submit "Search!", class:"btn btn-outline-success" %>
+<% end %>
+<h1>Movies</h1>
+
+<div id="movies">
+  <% @movies.each do |movie| %>
+    <%= render movie %>
+    <p>
+      <%= link_to "Show this movie", movie %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New movie", new_movie_path %>

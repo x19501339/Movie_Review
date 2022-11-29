@@ -1,0 +1,9 @@
+
+<%= search_form_for @q do |f| %>
+
+  # Search if the name field contains...
+  <%= f.label :name_cont %>
+  <%= f.search_field :title_or_body_or_user_email_or_user_name_i_cont_any_or_movie %>
+
+  <%= f.submit %>
+<% end %>

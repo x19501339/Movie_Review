@@ -1,0 +1,6 @@
+<% if @reviews.present? %>
+  <% @reviews.each do |review| %>
+    <p>Rating: <b><%= review.raing %></b></p>
+    <p>Comment: <%= review.comment %></p>
+  <% end %>
+<% end %>
